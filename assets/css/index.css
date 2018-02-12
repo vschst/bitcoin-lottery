@@ -1,0 +1,16 @@
+.jumbotron {
+	text-align: center;
+	border-bottom: .05rem solid #e5e5e5;
+}
+
+.jumbotron .btn {
+	padding: 1.5rem 1.5rem;
+	font-size: 2.5rem;
+	margin-top: 2.5rem;
+}
+
+@media screen and (min-width: 68em) {
+	.jumbotron {
+		border-bottom: 0;
+	}
+}

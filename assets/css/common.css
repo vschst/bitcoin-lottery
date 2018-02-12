@@ -1,0 +1,45 @@
+/* Space out content a bit */
+body {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.navbar,
+.footer {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+/* Custom page header */
+.navbar {
+  margin-bottom: 1rem;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.navbar .fa-twitter-square {
+	padding-top: 5px;
+}
+/* Custom page footer */
+.footer {
+	margin-top: 0.5rem;
+	padding-top: 1rem;
+	color: #777;
+	border-top: .05rem solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 68em) {
+  .container {
+    max-width: 66rem;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 68em) {
+  /* Remove the padding we set earlier */
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
