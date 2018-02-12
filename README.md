@@ -1,6 +1,8 @@
 # Bitcoin Lottery
 It's a Bitcoin-based virtual platform for organization and conduct a drawing of bitcoins.
 
+URL: http://bitcoinlottery2018.com/
+
 ## Server requirements
 PHP version 5.6 or newer; MySQL Server 5.7
 
