@@ -13,7 +13,7 @@ CREATE TABLE winners (
   btc_address char(35) NOT NULL,
   transaction_hash char(64) NOT NULL,
   value double NOT NULL
-)
+);
 ALTER TABLE winners ADD PRIMARY KEY (lottery_id, btc_address);
 
 CREATE TABLE participants (

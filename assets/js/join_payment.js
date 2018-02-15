@@ -17,7 +17,7 @@ function update_payment_status() {
 		function(data) {
 			var data_obj = $.parseJSON(data);
 
-			if (data_obj.hasOwnProperty('stage') && data_obj.hasOwnProperty('amount_pending') && data_obj.hasOwnProperty('amount_paid')) {
+			if (data_obj && data_obj.hasOwnProperty('stage') && data_obj.hasOwnProperty('amount_pending') && data_obj.hasOwnProperty('amount_paid')) {
 				if (data_obj.stage != 0) {
 					$('#cancel-payment').addClass('d-none');
 				}

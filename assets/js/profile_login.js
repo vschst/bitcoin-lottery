@@ -2,6 +2,7 @@ $("#login-btn").on('click',
 	function() {
 		//Client-side check
 		var auth_data_to_check = {
+			[csrf.name]: csrf.hash,
 			btc_address: $('#btc-address').val(),
 			email: $('#email').val()
 		};
@@ -26,7 +27,9 @@ $("#login-btn").on('click',
 						function (data) {
 							var data_obj = $.parseJSON(data);
 							
-							if (data_obj.hasOwnProperty('check_status')) {
+							if (data_obj && data_obj.hasOwnProperty('csrf') && data_obj.hasOwnProperty('check_status')) {
+								csrf = data_obj.csrf;
+								
 								$("#login-btn").find('i').addClass("d-none");
 								
 								//Server-side check

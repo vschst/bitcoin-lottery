@@ -86,22 +86,27 @@ $("#btc-address-to-check").on('focus',
 $("#check-btc-address-btn").on('click',
 	function() {
 		var btc_address_to_check = $.trim($("#btc-address-to-check").val());
-		
+
 		if (btc_address_to_check.length > 0) {
 			$(this).find('i').removeClass("d-none");
-			
+
 			setTimeout(
 				function(btc_address_to_check) {
 					$.ajax({
 						url: "/index/ajax_check_btc_address",
 						method: "POST",
-						data: {'btc_address': btc_address_to_check}
+						data: {
+							[csrf.name]: csrf.hash,
+							'btc_address': btc_address_to_check
+						}
 					})
 					.done(
 						function(data) {
 							var data_obj = $.parseJSON(data);
 							
-							if (data_obj && data_obj.hasOwnProperty('check_status')) {
+							if (data_obj && data_obj.hasOwnProperty('csrf') && data_obj.hasOwnProperty('check_status')) {
+								csrf = data_obj.csrf;
+
 								$("#check-btc-address-btn").find('i').addClass("d-none");
 						
 								if (data_obj.check_status) {

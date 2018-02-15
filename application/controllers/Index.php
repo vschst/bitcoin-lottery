@@ -13,6 +13,7 @@ class Index extends CI_Controller {
 		$this->load->library('page_library', array('controller_name' => 'index'));
 		
 		$this->load->helper('url');
+		$this->load->helper('csrf');
     }
 	
 	public function index()
@@ -42,6 +43,7 @@ class Index extends CI_Controller {
 				'participants_count' => $this->index_model->get_participants_count(),
 				'last_participants' => $this->index_model->get_last_participants(),
 				
+				'csrf' => get_csrf_data(),
 				'interval_to_lottery_timestamp' => $lottery_date->getTimestamp() - $current_date->getTimestamp()
 			);
 			
@@ -69,7 +71,7 @@ class Index extends CI_Controller {
 			$btc_address = $this->input->post('btc_address');
 		
 			if (isset($btc_address)) { 
-				echo json_encode(array('check_status' => $this->index_model->check_btc_address($btc_address)));
+				echo json_encode(array('csrf' => get_csrf_data(), 'check_status' => $this->index_model->check_btc_address($btc_address)));
 			}
 		}
 	}

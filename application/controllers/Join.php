@@ -17,6 +17,7 @@ class Join extends CI_Controller {
 		$this->load->library('email_notify');
 		
 		$this->load->helper('url');
+		$this->load->helper('csrf');
 	}
 
 	public function index()
@@ -55,6 +56,8 @@ class Join extends CI_Controller {
 				
 				$this->session->unset_userdata('join_index_error_alert');
 			}
+			
+			$view_data['csrf'] = get_csrf_data();
 			
 			$participant_data = $this->session->userdata('participant_data') or null;
 			
@@ -286,7 +289,7 @@ class Join extends CI_Controller {
 						);
 					}
 					
-					echo('Payment processed!');
+					echo('*ok*');
 					break;
 			}
 		}
@@ -308,7 +311,7 @@ class Join extends CI_Controller {
 			$this->session->set_userdata('participant_data_for_confirm', $participant_data_to_check);
 		}
 			
-		echo json_encode(array('check_status' => $check_status));
+		echo json_encode(array('csrf' => get_csrf_data(), 'check_status' => $check_status));
 	}
 	
 	public function ajax_get_payment_status()

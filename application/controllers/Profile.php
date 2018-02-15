@@ -13,6 +13,7 @@ class Profile extends CI_Controller {
 		$this->load->library('page_library', array('controller_name' => 'profile'));
 		
 		$this->load->helper('url');
+		$this->load->helper('csrf');
 	}
 	
 	public function index()
@@ -79,8 +80,9 @@ class Profile extends CI_Controller {
 		
 		$this->page_library->function_name = 'login';
 		$this->page_library->load_page_header($this->lang->line('profile_login_page_title') . " - " . $this->lang->line('page_title'));
-
-		$this->load->view('profile_login');
+		
+		$view_data = array('csrf' => get_csrf_data());
+		$this->load->view('profile_login', $view_data);
 		
 		$this->page_library->load_page_footer();
 	}
@@ -102,6 +104,6 @@ class Profile extends CI_Controller {
 			}
 		}
 		
-		echo json_encode(array('check_status' => $check_status['error_code']));
+		echo json_encode(array('csrf' => get_csrf_data(), 'check_status' => $check_status['error_code']));
 	}
 }

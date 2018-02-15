@@ -15,6 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php endforeach;?>
 							</script>
 							<form>
+								<script text="text/javascript">
+									var csrf = {name: '<?=$csrf['name'];?>', hash: '<?=$csrf['hash'];?>'};
+								</script>
 								<div class="form-group row">
 									<label for="btc-address" class="col-sm-2 col-form-label"><?php echo lang('btc_address');?></label>
 									<div class="col-sm-6">

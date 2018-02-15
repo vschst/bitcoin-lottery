@@ -58,6 +58,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 				<div class="container p-2 bg-light">
 					<form>
+						<script text="text/javascript">
+							var csrf = {name: '<?=$csrf['name'];?>', hash: '<?=$csrf['hash'];?>'};
+						</script>
 						<div class="form-row">
 							<div class="col-md-5">
 								<input type="email" class="form-control" id="btc-address-to-check" placeholder="<?php echo lang('check_btc_address');?>">
