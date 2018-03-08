@@ -1,10 +1,11 @@
+var $ = jQuery;
 var interval_to_lottery_timer;
 
 $(document).ready(
 	function() {
 		interval_to_lottery_timer = setInterval(refresh_interval_to_lottery, 1000);
 		
-		setTimeout(refresh_last_participants, 30000);
+		setTimeout(refresh_last_participants, 30000, $('#last-participants').attr('data-url'));
 	}
 );
 
@@ -37,9 +38,9 @@ function refresh_interval_to_lottery_elements() {
     $("#interval-seconds").text(seconds);
 }
 
-function refresh_last_participants() {
+function refresh_last_participants(ajax_url) {
 	$.ajax({
-		url: "/index/ajax_get_last_participants",
+		url: ajax_url,
 		method: "GET"
 	})
 	.done(
@@ -62,7 +63,7 @@ function refresh_last_participants() {
 				}
 			}
 
-			setTimeout(refresh_last_participants, 30000);
+			setTimeout(refresh_last_participants, 30000, ajax_url);
 		}
 	);
 }
@@ -77,27 +78,29 @@ function get_last_participants_row(row_num, row_data) {
 	return row_element;
 }
 
-$("#btc-address-to-check").on('focus',
+$('#check-btc-address').find("#btc-address").on('focus',
 	function() {
-		$('#btc-address-not-participate,#btc-address-participate').addClass("d-none");
+		$(this).find('#btc-address-not-participate, #btc-address-participate').addClass("d-none");
 	}
 );
 
-$("#check-btc-address-btn").on('click',
-	function() {
-		var btc_address_to_check = $.trim($("#btc-address-to-check").val());
+$("#check-btc-address").submit(
+	function(event) {
+		event.preventDefault();
+	
+		var btc_address = $.trim($(this).find("#btc-address").val());
 
-		if (btc_address_to_check.length > 0) {
-			$(this).find('i').removeClass("d-none");
+		if (btc_address.length > 0) {
+			$(this).find('#sumbit-btn').find('[data-fa-i2svg]').removeClass("d-none");
 
 			setTimeout(
-				function(btc_address_to_check) {
+				function(form_url, btc_address) {
 					$.ajax({
-						url: "/index/ajax_check_btc_address",
+						url: form_url,
 						method: "POST",
 						data: {
 							[csrf.name]: csrf.hash,
-							'btc_address': btc_address_to_check
+							'btc_address': btc_address
 						}
 					})
 					.done(
@@ -106,20 +109,21 @@ $("#check-btc-address-btn").on('click',
 							
 							if (data_obj && data_obj.hasOwnProperty('csrf') && data_obj.hasOwnProperty('check_status')) {
 								csrf = data_obj.csrf;
-
-								$("#check-btc-address-btn").find('i').addClass("d-none");
+								
+								var form_element = $('#check-btc-address');
+								form_element.find$('#submit-btn').find('[data-fa-i2svg]').addClass("d-none");
 						
 								if (data_obj.check_status) {
-									$('#btc-address-participate').removeClass("d-none");
+									form_element.find('#btc-address-participate').removeClass("d-none");
 								}
 								else {
-									$('#btc-address-not-participate').removeClass("d-none");
+									form_element.find('#btc-address-not-participate').removeClass("d-none");
 								}
 							}
 						}
 					);
 				},
-			1000, btc_address_to_check);
+			1000, $(this).attr('action'), btc_address);
 		}
 	}
 );

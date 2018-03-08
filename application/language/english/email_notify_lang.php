@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$lang['display_name'] = 'Bitcoin Lottery 2018';
+
 $lang['join_invoice_created'] = array(
 	'subject' => 'Notification for payment of the lottery fee',
 	'message' => 'Thank you for your participation in the lottery.

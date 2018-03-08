@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['main_caption'] = 'Confirmation of participation';
 $lang['confirmation_description'] = 'Please carefully check your data. In the future, you can not change them. You will need to pay exactly from the bitcoin address that you specified. Notifications will be sent to the email address you provided.';
-$lang['btc_amount_text_light'] = '<b><code class="highlighter-rouge">{btc_amount}</code> BTC</b>';
 $lang['back_btn'] = 'Back and edit';
 $lang['continue_btn'] = 'Proceed to payment';
 $lang['error_alerts'] = array(

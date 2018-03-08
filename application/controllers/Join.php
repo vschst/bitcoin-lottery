@@ -57,7 +57,7 @@ class Join extends CI_Controller {
 				$this->session->unset_userdata('join_index_error_alert');
 			}
 			
-			$view_data['csrf'] = get_csrf_data();
+			$view_data['csrf'] = csrf_view();
 			
 			$participant_data = $this->session->userdata('participant_data') or null;
 			

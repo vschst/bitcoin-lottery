@@ -43,7 +43,7 @@ class Index extends CI_Controller {
 				'participants_count' => $this->index_model->get_participants_count(),
 				'last_participants' => $this->index_model->get_last_participants(),
 				
-				'csrf' => get_csrf_data(),
+				'csrf' => csrf_view(),
 				'interval_to_lottery_timestamp' => $lottery_date->getTimestamp() - $current_date->getTimestamp()
 			);
 			
@@ -51,6 +51,9 @@ class Index extends CI_Controller {
 		
 			$this->page_library->load_page_footer();
 		}
+		else { 
+			echo('Lottery is not available now!');
+		};
 	}
 	
 	public function ajax_get_last_participants()

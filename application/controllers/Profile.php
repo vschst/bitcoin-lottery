@@ -81,7 +81,7 @@ class Profile extends CI_Controller {
 		$this->page_library->function_name = 'login';
 		$this->page_library->load_page_header($this->lang->line('profile_login_page_title') . " - " . $this->lang->line('page_title'));
 		
-		$view_data = array('csrf' => get_csrf_data());
+		$view_data = array('csrf' => csrf_view());
 		$this->load->view('profile_login', $view_data);
 		
 		$this->page_library->load_page_footer();

@@ -59,9 +59,7 @@ class Join_model extends CI_Model {
 		$invoice_id = $this->db->insert_id();
 		
 		if ($invoice_id != 0) {
-			$date = new DateTime();
-			
-			$this->db->replace('participants', array('btc_address' => $participant_data['btc_address'], 'email' => $participant_data['email'], 'invoice_id' => $invoice_id, 'rdate' => $date->format('Y-m-d H:i:s')));
+			$this->db->replace('participants', array('btc_address' => $participant_data['btc_address'], 'email' => $participant_data['email'], 'invoice_id' => $invoice_id, 'rdate' => date('Y-m-d H:i:s')));
 			
 			$blockchain_keys = array('api' => $this->config->item('api_key'), 'xpub' => $this->config->item('xpub_key'));
 			
@@ -188,11 +186,9 @@ class Join_model extends CI_Model {
 		if ($payment_data['address'] != $callback_data['address']) {
 			return (-1);
 		}
-		
-		$date = new DateTime();
-		
+
 		if ($callback_data['confirmations'] >= 4) {
-			$this->db->replace('invoice_payments', array('invoice_id' => $invoice_id, 'transaction_hash' => $callback_data['transaction_hash'], 'value' => $callback_data['value_in_btc'], 'tdate' => $date->format('Y-m-d H:i:s')));
+			$this->db->replace('invoice_payments', array('invoice_id' => $invoice_id, 'transaction_hash' => $callback_data['transaction_hash'], 'value' => $callback_data['value_in_btc'], 'tdate' => date('Y-m-d H:i:s')));
 			
 			$this->db->delete('pending_invoice_payments', array('invoice_id' => $invoice_id))
 					 ->limit(1);

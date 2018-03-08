@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['main_caption'] = 'Registering a new participant';
 $lang['join_is_not_available'] = 'Currently, registration of new participants of the lottery is not available.';
-$lang['payment_of_fee_text'] = 'To participate in the lottery you need to pay the entrance fee in the amount of <b><code class="highlighter-rouge">{fee_amount}</code> BTC</b>';
+$lang['payment_of_fee_text'] = 'To participate in the lottery you need to pay the entrance fee in the amount of <b>{fee_amount_text}</b>';
 $lang['form_filling_text'] = 'Before you do this please fill in the following information';
 $lang['btc_address_help'] = 'This address will participate in the lottery, it must pay.';
 $lang['email_help'] = 'To send you notifications.';
