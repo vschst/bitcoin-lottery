@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<?=$csrf;?>
 						<div class="form-row">
 							<div class="col-md-5">
-								<input type="text" class="form-control" id="btc-address-to-check" placeholder="<?=lang('check_btc_address')?>">
+								<input type="text" class="form-control" id="btc-address" placeholder="<?=lang('check_btc_address')?>">
 							</div>
 							<div class="col-md-1">
 								<button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit-btn"><i class="fas fa-circle-notch fa-spin d-none"></i> <?=lang('check_btc_address_btn')?></button>

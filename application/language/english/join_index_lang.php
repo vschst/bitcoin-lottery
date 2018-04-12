@@ -7,7 +7,7 @@ $lang['payment_of_fee_text'] = 'To participate in the lottery you need to pay th
 $lang['form_filling_text'] = 'Before you do this please fill in the following information';
 $lang['btc_address_help'] = 'This address will participate in the lottery, it must pay.';
 $lang['email_help'] = 'To send you notifications.';
-$lang['confirmation_of_terms'] = 'I agree with <a href="/terms" target="_blank">terms of service</a> and I am 18 years old.';
+$lang['confirmation_of_terms'] = 'I agree with <a href="terms" target="_blank">terms of service</a> and I am 18 years old.';
 $lang['next_btn'] = 'Next';
 $lang['error_alerts'] = array(
 	'empty_btc_address' => 'Please enter the address of your bitcoin wallet',

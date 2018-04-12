@@ -80,7 +80,7 @@ function get_last_participants_row(row_num, row_data) {
 
 $('#check-btc-address').find("#btc-address").on('focus',
 	function() {
-		$(this).find('#btc-address-not-participate, #btc-address-participate').addClass("d-none");
+		$('#check-btc-address').find('#btc-address-not-participate, #btc-address-participate').addClass("d-none");
 	}
 );
 
@@ -91,7 +91,7 @@ $("#check-btc-address").submit(
 		var btc_address = $.trim($(this).find("#btc-address").val());
 
 		if (btc_address.length > 0) {
-			$(this).find('#sumbit-btn').find('[data-fa-i2svg]').removeClass("d-none");
+			$(this).find('#submit-btn').find('[data-fa-i2svg]').removeClass("d-none");
 
 			setTimeout(
 				function(form_url, btc_address) {
@@ -111,7 +111,7 @@ $("#check-btc-address").submit(
 								csrf = data_obj.csrf;
 								
 								var form_element = $('#check-btc-address');
-								form_element.find$('#submit-btn').find('[data-fa-i2svg]').addClass("d-none");
+								form_element.find('#submit-btn').find('[data-fa-i2svg]').addClass("d-none");
 						
 								if (data_obj.check_status) {
 									form_element.find('#btc-address-participate').removeClass("d-none");

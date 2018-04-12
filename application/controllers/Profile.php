@@ -63,7 +63,9 @@ class Profile extends CI_Controller {
 	
 	public function logout()
 	{
-		if (!empty($this->session->userdata('login_data'))) {
+		$login_data = $this->session->userdata('login_data');
+		
+		if (!empty($login_data)) {
 			$this->session->unset_userdata('login_data');
 		}
 		

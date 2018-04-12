@@ -29,18 +29,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="col-lg-10">
 									<div class="input-group">
 										<input type="text" class="form-control" style="font-weight: bold; background-color: #F4F6F6;" id="destination-btc-address" value="<?=$destination_btc_address?>" readonly>
-										<span class="input-group-btn">
+										<div class="input-group-append">
 											<script type="text/javascript">
 												var copy_tooltip_title = {
 													copy: "<?=lang('copy_btn_tooltip')?>",
 													copied: "<?=lang('copy_btn_copied')?>"
 												}
 											</script>
-											<button type="button" class="btn btn-secondary" id="destination-btc-address-copy-btn" data-toggle="tooltip" data-placement="top" title="<?=lang('copy_btn_tooltip')?>"><?=lang('copy_btn')?></button>
-										</span>
-										<span class="input-group-btn">
-											<button class="btn btn-info" type="button" data-toggle="modal" data-target="#destination-address-qr-code-modal"><?=lang('qr_code_btn')?></button>
-										</span>
+											<button class="btn btn-secondary" type="button" id="destination-btc-address-copy-btn" data-toggle="tooltip" data-placement="top" title="<?=lang('copy_btn_tooltip')?>"><?=lang('copy_btn')?></button>
+											<button class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#destination-address-qr-code-modal"><?=lang('qr_code_btn')?></button>
+										</div>
 									</div>
 									<small class="text-muted"><?=lang('destination_btc_address_help')?></small>
 								</div>

@@ -13,8 +13,7 @@ class Join_model extends CI_Model {
 		if (!array_key_exists('btc_address', $participant_data) OR empty($participant_data['btc_address']) OR !preg_match($this->btc_address_regexp, $participant_data['btc_address'])) {
 			return (-1);
 		}
-		
-		//if (!array_key_exists('email', $participant_data) OR empty($participant_data['email']) OR !filter_var($participant_data['email'], FILTER_VALIDATE_EMAIL)) {
+
 		if (!array_key_exists('email', $participant_data) OR empty($participant_data['email']) OR !preg_match($this->email_regexp, $participant_data['email'])) {
 			return (-2);
 		}

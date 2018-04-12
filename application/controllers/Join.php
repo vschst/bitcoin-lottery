@@ -322,7 +322,9 @@ class Join extends CI_Controller {
 			$payment_status = $this->join_model->get_payment_status($invoice_data);
 			
 			if ($payment_status) {
-				if (($payment_status['stage'] == 2) AND empty($this->session->userdata('login_data'))) {
+				$login_data = $this->session->userdata('login_data');
+				
+				if (($payment_status['stage'] == 2) AND empty($login_data)) {
 					$login_token = $this->join_model->create_login_token($invoice_data);
 					
 					if ($login_token) {
