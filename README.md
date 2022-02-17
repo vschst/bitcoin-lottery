@@ -15,7 +15,7 @@ PHP version 5.6 or newer; MySQL Server 5.7
 ### Copying repository files.
 Clone this repository into your site directory
 ```
-git clone https://github.com/victor192/bitcoin-lottery.git
+git clone https://github.com/vschst/bitcoin-lottery.git
 ```
 
 ### Update Composer dependencies
